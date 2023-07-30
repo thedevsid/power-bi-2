@@ -1,0 +1,24 @@
+import powerbi
+
+# Create a new Power BI module
+module = powerbi.Module()
+
+# Add a data visualization to the module
+visualization = powerbi.Visualization()
+visualization.title = "Sales by Product"
+visualization.data = [
+    {"Product": "Product A", "Sales": 100},
+    {"Product": "Product B", "Sales": 200},
+    {"Product": "Product C", "Sales": 300},
+]
+module.visualizations.append(visualization)
+
+# Add an analytics pane to the module
+analytics_pane = powerbi.AnalyticsPane()
+analytics_pane.title = "Sales Analysis"
+analytics_pane.metrics.append("Sales")
+analytics_pane.filters.append("Product")
+module.analytics_panes.append(analytics_pane)
+
+# Save the module
+module.save("my_module.pbix")
